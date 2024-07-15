@@ -1,0 +1,15 @@
+﻿@using MvcProject.Models.siniflar
+@model List<Blog>
+
+@{int i = 0;}
+<div class="padding">
+    <h4>En Popüler 10 Yer</h4>
+    @foreach (var item in Model)
+    {
+        <ul class="list list-pad">
+            <li class="list-bg"><span>@{i++;} @i.</span><a href="/Blog/BlogDetay/@item.ID">@item.Baslik</a></li>
+        </ul>
+    }
+
+    <a href="/Blog/Index" class="link1">Tüm Blogları Göster</a>
+</div>

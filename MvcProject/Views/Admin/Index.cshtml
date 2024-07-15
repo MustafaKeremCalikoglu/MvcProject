@@ -1,0 +1,35 @@
+﻿@using MvcProject.Models.siniflar
+@model List<Blog>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Blog </h2>
+
+
+
+<table class="table table-success table-striped">
+    <tr>
+        <th>ID</th>
+        <th>BAŞLIK</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+        <th>DETAYLAR</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.ID</th>
+            <th>@item.Baslik</th>
+            <th><a href="/Admin/BlogSil/@item.ID" class="btn btn-danger">Sil</a></th>
+            <th><a href="/Admin/BlogGetir/@item.ID" class="btn btn-warning">güncelle</a></th>
+            <th><a href="#" class="btn btn-secondary">Detaylar</a></th>
+
+        </tr>
+    }
+
+</table>
+<th><a href="/Admin/YeniBlog" class="btn btn-primary">Yeni Blog</a></th>
+
+

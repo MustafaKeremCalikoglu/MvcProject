@@ -1,0 +1,36 @@
+﻿@using MvcProject.Models.siniflar
+@model List<Yorumlar>
+
+@{
+    ViewBag.Title = "YorumListele";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>YorumListele</h2>
+
+<table class="table table-success table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Kullanıcı</th>
+        <th>Mail</th>
+        <th>Yorum</th>
+        <th>Blog</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.ID</th>
+            <th>@item.KullaniciAdi</th>
+            <th>@item.Mail</th>
+            <th>@item.Yorum</th>
+            <th>@item.blog.Baslik</th>
+            <th><a href="/Admin/YorumSil/@item.ID" class="btn btn-danger">Sil</a></th>
+            <th><a href="/Admin/YorumGetir/@item.ID" class="btn btn-warning">güncelle</a></th>
+        </tr>
+    }
+
+</table>
+
